@@ -8,13 +8,18 @@
     "url": "http://github.com/golmansax/funnel.git"
   },
   "devDependencies": {
+    "babelify": "*",
+    "reactify": "*",
+    "watchify": "*"
   },
   "dependencies": {
     "babel": "*",
+    "browserify": "*",
     "express": "*",
     "react": "*"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon -e js,json",
+    "watch": "make watch"
   }
 }

@@ -25,7 +25,7 @@ export default class Layout extends React.Component {
         </head>
         <body>
           <div id='content' />
-          Hello World
+          <script type='text/javascript' src='/build/bundle.js' />
         </body>
       </html>
     );
