@@ -16,10 +16,12 @@
     "babel": "*",
     "browserify": "*",
     "express": "*",
-    "react": "*"
+    "react": "*",
+    "reqwest": "*",
+    "superagent": "*"
   },
   "scripts": {
-    "start": "nodemon -e js,json",
+    "start": "nodemon --watch server.js --watch server/",
     "watch": "make watch"
   }
 }
