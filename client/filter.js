@@ -4,7 +4,7 @@ import Link from './link';
 import lookupImage from './lookup_image';
 
 const CATEGORY_MAP = {
-  "Men's Shoes": { category: true, color: true }
+  "Men's Shoes": { category: true, color: true },
 };
 
 export default class Filter extends React.Component {
