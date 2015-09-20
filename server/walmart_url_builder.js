@@ -4,6 +4,12 @@ export function buildQueryUrl(query) {
 }
 
 export function buildAutocompleteUrl(query) {
-  const modifiedQuery = encodeURIComponent(query).replace(/%/g, '_');
+  const modifiedQuery =
+    encodeURIComponent(query.toLowerCase()).replace(/%/g, '_');
+
   return `http://www.walmart.com/search/autocomplete/v1/5438/${modifiedQuery}.js`;
+}
+
+export function buildCategoryUrl(category) {
+  return 'http://walmart.com';
 }

@@ -21,6 +21,7 @@
     "babel": "*",
     "browserify": "*",
     "express": "*",
+    "autocomplete": "*",
     "react": "*",
     "reqwest": "*",
     "superagent": "*"

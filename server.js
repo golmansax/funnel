@@ -4,6 +4,8 @@ import React from 'react';
 import Layout from './layout';
 import { getWalmartResults } from './server/walmart_results';
 import { getMockResultSet } from './server/mock_data';
+import { queryCategories } from './server/categories';
+import categoryToResultSet from './server/category_to_result_set';
 
 const server = express();
 
@@ -16,11 +18,15 @@ server.get('/', (req, res) => {
 
 server.get('/result_sets', (req, res) => {
   const query = req.query.query;
+  let resultSets = [];
+
   getWalmartResults(query).then((walmartResults) => {
-    res.json({
-      resultSets: [getMockResultSet()].concat(walmartResults),
-    });
+    resultSets = resultSets.concat(walmartResults);
+    res.json({ resultSets: resultSets });
   });
+
+  const categories = queryCategories(query);
+  resultSets = resultSets.concat(categories.map(categoryToResultSet));
 });
 
 export default server;
