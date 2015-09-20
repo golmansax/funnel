@@ -20,7 +20,10 @@ export default class ResultSet extends React.Component {
     const parentResult = this.props.parentResult;
     return (
       <div>
-        <a href={parentResult.url}>{parentResult.displayText}</a>
+        <a href={parentResult.url} target='_blank'>
+          {parentResult.displayText}
+        </a>
+        &nbsp;in {parentResult.path}
       </div>
     );
   }
@@ -36,7 +39,9 @@ export default class ResultSet extends React.Component {
   _renderChildResult(result, index) {
     return (
       <div key={index}>
-        <a href={result.url}> - {result.displayText}</a>
+        <a href={result.url} target='_blank'>
+          &nbsp;- {result.displayText}
+        </a>
       </div>
     );
   }

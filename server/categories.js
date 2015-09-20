@@ -1,5 +1,5 @@
 import Autocomplete from 'autocomplete';
-import { categories } from '../static_data/categories.json';
+import { categories as rawCategories } from '../static_data/categories.json';
 import slugify from '../shared/utils/slugify';
 
 const autocomplete = Autocomplete.connectAutocomplete();
@@ -13,18 +13,28 @@ function insertCategoryAndSlug(category, slug) {
   }
 }
 
+function reversePath(path) {
+  const parts = path.split('/');
+  if (parts.length <= 1) { return path; }
+
+  return parts.reduce((previousValue, currentValue) => {
+    return `${currentValue}/${previousValue}`;
+  }, '');
+}
+
 function loadCategories(categories) {
   categories.forEach((category) => {
     insertCategoryAndSlug(category, slugify(category.name));
     insertCategoryAndSlug(category, slugify(category.path));
+    insertCategoryAndSlug(category, slugify(reversePath(category.path)));
 
     if (category.children) { loadCategories(category.children); }
   });
 }
-loadCategories(categories);
+loadCategories(rawCategories);
 
 autocomplete.initialize((onReady) => onReady(slugs));
-console.log('categories loaded!');
+console.log('categories loaded!'); // eslint-disable-line no-console
 
 export function queryCategories(query) {
   const matches = autocomplete.search(slugify(query));

@@ -5,6 +5,7 @@ function categoryToResult(category) {
   return {
     displayText: category.name,
     filters: getFilters(category.id),
+    path: category.path,
     url: buildCategoryUrl(category),
   };
 }

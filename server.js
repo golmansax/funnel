@@ -3,7 +3,6 @@ import path from 'path';
 import React from 'react';
 import Layout from './layout';
 import { getWalmartResults } from './server/walmart_results';
-import { getMockResultSet } from './server/mock_data';
 import { queryCategories } from './server/categories';
 import categoryToResultSet from './server/category_to_result_set';
 

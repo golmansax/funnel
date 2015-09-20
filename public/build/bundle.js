@@ -152,9 +152,11 @@ var ResultSet = (function (_React$Component) {
         null,
         _react2['default'].createElement(
           'a',
-          { href: parentResult.url },
+          { href: parentResult.url, target: '_blank' },
           parentResult.displayText
-        )
+        ),
+        ' in ',
+        parentResult.path
       );
     }
   }, {
@@ -174,8 +176,8 @@ var ResultSet = (function (_React$Component) {
         { key: index },
         _react2['default'].createElement(
           'a',
-          { href: result.url },
-          ' - ',
+          { href: result.url, target: '_blank' },
+          ' - ',
           result.displayText
         )
       );
