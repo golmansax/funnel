@@ -2,6 +2,6 @@ machine:
   environment:
     PATH: ./node_modules/.bin:$PATH
 
-  test:
-    override:
-      - make eslint
+test:
+  override:
+    - make eslint
