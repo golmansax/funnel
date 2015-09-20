@@ -13,10 +13,20 @@ function insertCategoryAndSlug(category, slug) {
   }
 }
 
+function reversePath(path) {
+  const parts = path.split('/');
+  if (parts.length <= 1) { return path; }
+
+  return parts.reduce((previousValue, currentValue) => {
+    return `${currentValue}/${previousValue}`;
+  }, '');
+}
+
 function loadCategories(categories) {
   categories.forEach((category) => {
     insertCategoryAndSlug(category, slugify(category.name));
     insertCategoryAndSlug(category, slugify(category.path));
+    insertCategoryAndSlug(category, slugify(reversePath(category.path)));
 
     if (category.children) { loadCategories(category.children); }
   });
