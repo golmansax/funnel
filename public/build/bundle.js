@@ -60,7 +60,6 @@ var App = (function (_React$Component) {
     _get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, props);
     this.state = { resultSets: [], query: '' };
 
-    this._bindResultSets = this._bindResultSets.bind(this);
     this._updateQuery = this._updateQuery.bind(this);
   }
 
@@ -92,11 +91,15 @@ var App = (function (_React$Component) {
         url: 'http://localhost:3000/result_sets',
         method: 'get',
         data: { query: query }
-      }).then(this._bindResultSets);
+      }).then(this._bindResultSets.bind(this, query));
     }
   }, {
     key: '_bindResultSets',
-    value: function _bindResultSets(data) {
+    value: function _bindResultSets(query, data) {
+      if (this.state.query !== query) {
+        return;
+      }
+
       this.setState({ resultSets: data.resultSets });
     }
   }]);

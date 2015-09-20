@@ -8,7 +8,6 @@ export default class App extends React.Component {
     super(props);
     this.state = { resultSets: [], query: '' };
 
-    this._bindResultSets = this._bindResultSets.bind(this);
     this._updateQuery = this._updateQuery.bind(this);
   }
 
@@ -33,10 +32,12 @@ export default class App extends React.Component {
       url: 'http://localhost:3000/result_sets',
       method: 'get',
       data: { query: query },
-    }).then(this._bindResultSets);
+    }).then(this._bindResultSets.bind(this, query));
   }
 
-  _bindResultSets(data) {
+  _bindResultSets(query, data) {
+    if (this.state.query !== query) { return; }
+
     this.setState({ resultSets: data.resultSets });
   }
 }
