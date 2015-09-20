@@ -112,7 +112,7 @@
 
 ._client_filter__facetImage {
   float: left;
-  height: 3em;
+  height: 3em !important;
 }
 
 ._client_filter__facetText {

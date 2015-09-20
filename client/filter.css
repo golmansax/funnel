@@ -50,7 +50,7 @@
 
 .facetImage {
   float: left;
-  height: 3em;
+  height: 3em !important;
 }
 
 .facetText {
