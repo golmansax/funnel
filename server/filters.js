@@ -1,7 +1,7 @@
 import { buildFacetUrl } from './walmart_url_builder';
 import { getCategory } from './categories';
 
-const default_filters = [
+const defaultFilters = [
   ['1072864_1067618_1218947', []],
   ['1072864_1067618_1218949', []],
   ['1085666_1007039_1044037', []],
@@ -23,14 +23,10 @@ const default_filters = [
   ['976759_976780_1092367', []],
   ['976759_976782_1001321', []],
   ['976759_976783_1001332', []],
-  ['976759_976787_1044135', []]
+  ['976759_976787_1044135', []],
 ];
 
-const id_to_filter = new Map(default_filters);
-
-function init() {
-
-}
+const idToFilter = new Map(defaultFilters);
 
 function loadFilters(id) {
   const filters = require(`../static_data/filters/${id}.json`);
@@ -51,8 +47,8 @@ function loadFilters(id) {
 }
 
 export function getFilters(id) {
-  if (!id_to_filter.get(id)) {
-    id_to_filter.set(id, loadFilters(id));
+  if (!idToFilter.get(id)) {
+    idToFilter.set(id, loadFilters(id));
   }
-  return id_to_filter.get(id);
+  return idToFilter.get(id);
 }
