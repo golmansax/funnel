@@ -1,4 +1,4 @@
-
+var AUTOCOMPLETE_CLASS = 'twitter-typeahead typeahead';
 var cur;
 var next;
 
@@ -10,7 +10,7 @@ function swap() {
   next.style.display = 'none';
 }
 
-function add_button() {
+function add_toggle_button() {
   var button = document.createElement('button');
   button.id = 'mybutton';
   button.innerText= 'Yo Quarry';
@@ -20,15 +20,15 @@ function add_button() {
   document.getElementsByClassName('header-primary')[0].appendChild(button);
 }
 
-function load_css() {
+function load_quarry_css() {
   var elt = document.createElement('link');
   elt.rel = 'stylesheet';
   elt.href = 'http://localhost:3000/build/bundle.css';
   document.head.appendChild(elt);
 }
 
-function init() {
-  var orig = document.getElementsByClassName('twitter-typeahead typeahead')[0];
+function init_quarry() {
+  var orig = document.getElementsByClassName(AUTOCOMPLETE_CLASS)[0];
   var new_input = document.createElement('div');
   new_input.id = 'content';
   new_input.style.display = 'none';
@@ -50,10 +50,15 @@ function _BuildJSScriptElement(id, src, content) {
   return script;
 }
 
-window.setTimeout(function() {
-  init();
-  add_button();
-  load_css();
-  var script = _BuildJSScriptElement('', 'http://localhost:3000/build/bundle.js');
-  document.documentElement.appendChild(script);
-}, 5000);
+function init_after_autocomplete_load() {
+  if (document.getElementsByClassName(AUTOCOMPLETE_CLASS).length > 0) {
+    clearInterval(interval);
+    init_quarry();
+    add_toggle_button();
+    load_quarry_css();
+    var script = _BuildJSScriptElement('', 'http://localhost:3000/build/bundle.js');
+    document.documentElement.appendChild(script);
+  }
+}
+
+var interval = setInterval(init_after_autocomplete_load, 100);
