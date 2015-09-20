@@ -88,7 +88,7 @@ var App = (function (_React$Component) {
       this.setState({ query: query });
 
       (0, _reqwest2['default'])({
-        url: 'http://localhost:3000/result_sets',
+        url: '/result_sets',
         method: 'get',
         data: { query: query }
       }).then(this._bindResultSets.bind(this, query));
