@@ -6,7 +6,7 @@
     "tabs",
     "activeTab",
     "http://localhost:3000/",
-    "http://www.walmart.com/*",
+    "http://www.walmart.com/*"
   ],
   "icons": {
     "48": "icon.png"

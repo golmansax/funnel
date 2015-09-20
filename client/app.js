@@ -29,7 +29,7 @@ export default class App extends React.Component {
     this.setState({ query: query });
 
     reqwest({
-      url: '/result_sets',
+      url: 'http://localhost:3000/result_sets',
       method: 'get',
       data: { query: query },
     }).then(this._bindResultSets.bind(this, query));
