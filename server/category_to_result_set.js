@@ -1,8 +1,10 @@
 import { buildCategoryUrl } from './walmart_url_builder';
+import { getFilters } from './filters';
 
 function categoryToResult(category) {
   return {
     displayText: category.name,
+    filters: getFilters(category.id),
     url: buildCategoryUrl(category),
   };
 }
