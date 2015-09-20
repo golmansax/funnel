@@ -39,7 +39,17 @@ console.log('categories loaded!'); // eslint-disable-line no-console
 export function queryCategories(query) {
   const matches = autocomplete.search(slugify(query));
   if (matches.length > 0) {
-    return matches.map((match) => index.get(match));
+    const lookup = {};
+    const categories = [];
+    matches.forEach((match) => {
+      const category = index.get(match);
+      if (!lookup[category.id]) {
+        lookup[category.id] = true;
+        categories.push(category);
+      }
+    });
+
+    return categories;
   }
 
   return [];
