@@ -9,6 +9,7 @@ export default class App extends React.Component {
     this.state = { resultSets: [], query: '' };
 
     this._updateQuery = this._updateQuery.bind(this);
+    this._renderResults = this._renderResults.bind(this);
   }
 
   render() {
@@ -20,7 +21,7 @@ export default class App extends React.Component {
           onChange={(event) => this._updateQuery(event.target.value)}
           className={styles.input}
         />
-        <ResultSetList resultSets={this.state.resultSets} />
+        {this._renderResults()}
       </div>
     );
   }
@@ -33,6 +34,11 @@ export default class App extends React.Component {
       method: 'get',
       data: { query: query },
     }).then(this._bindResultSets.bind(this, query));
+  }
+
+  _renderResults() {
+    if (this.state.resultSets.length <= 0) { return null; }
+    return <ResultSetList resultSets={this.state.resultSets} />;
   }
 
   _bindResultSets(query, data) {

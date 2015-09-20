@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './filter.css';
+import Link from './link';
 
 export default class Filter extends React.Component {
   constructor(props) {
@@ -25,10 +26,10 @@ export default class Filter extends React.Component {
   _renderFacet(facet, index) {
     return (
       <div className={styles.facetContainer} key={index}>
-        <a className={styles.facet} href={facet.url} target='_blank'>
+        <Link className={styles.facet} href={facet.url}>
           {facet.name}
           <div className={styles.facetCount}>{facet.count} results</div>
-        </a>
+        </Link>
       </div>
     );
   }

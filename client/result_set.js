@@ -1,6 +1,7 @@
 import React from 'react';
 import FilterList from './filter_list';
 import styles from './result_set.css';
+import Link from './link';
 
 export default class ResultSet extends React.Component {
   constructor(props) {
@@ -22,10 +23,10 @@ export default class ResultSet extends React.Component {
   _renderParentResult() {
     const parentResult = this.props.parentResult;
     return (
-      <a className={styles.parentResult} href={parentResult.url} target='_blank'>
+      <Link className={styles.parentResult} href={parentResult.url}>
         {parentResult.displayText}
         {this._renderPath(parentResult.path)}
-      </a>
+      </Link>
     );
   }
 
@@ -49,9 +50,9 @@ export default class ResultSet extends React.Component {
 
   _renderChildResult(result, index) {
     return (
-      <a className={styles.childResult} key={index} href={result.url} target='_blank'>
+      <Link className={styles.childResult} key={index} href={result.url}>
         {result.displayText}
-      </a>
+      </Link>
     );
   }
 }

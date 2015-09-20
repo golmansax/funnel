@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import React from 'react';
-import Layout from './layout';
+import Layout from './server/layout';
 import { getWalmartResults } from './server/walmart_results';
 import { queryCategories } from './server/categories';
 import categoryToResultSet from './server/category_to_result_set';

@@ -1,5 +1,7 @@
 ._client_app__container {
-  width: 40em;
+  width: 100%;
+  position: absolute;
+  background: #fff;
 }
 
 ._client_app__input {
@@ -8,6 +10,7 @@
 
 ._client_result_set_list__resultSetList {
   padding-top: .5em;
+  box-shadow: 0 8px 10px rgba(0,0,0,.4);
 }
 
 ._client_styles__walmart {

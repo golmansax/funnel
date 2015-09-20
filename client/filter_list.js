@@ -5,7 +5,7 @@ export default class FilterList extends React.Component {
   render() {
     const filters = this.props.filters.filter((filter) => {
       return filter.name !== 'retailer';
-    });
+    }).slice(0, 2);
 
     return <div>{filters.map(this._renderFilter)}</div>;
   }
