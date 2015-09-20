@@ -23,6 +23,7 @@ export default class ResultSet extends React.Component {
         <a href={parentResult.url} target='_blank'>
           {parentResult.displayText}
         </a>
+        &nbsp;in {parentResult.path}
       </div>
     );
   }

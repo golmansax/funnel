@@ -154,7 +154,9 @@ var ResultSet = (function (_React$Component) {
           'a',
           { href: parentResult.url, target: '_blank' },
           parentResult.displayText
-        )
+        ),
+        ' in ',
+        parentResult.path
       );
     }
   }, {

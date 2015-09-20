@@ -3,6 +3,7 @@ import { buildCategoryUrl } from './walmart_url_builder';
 function categoryToResult(category) {
   return {
     displayText: category.name,
+    path: category.path,
     url: buildCategoryUrl(category),
   };
 }
