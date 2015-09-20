@@ -32,6 +32,11 @@ export default class App extends React.Component {
     );
   }
 
+  _renderResults() {
+    if (this.state.resultSets.length <= 0) { return null; }
+    return <ResultSetList resultSets={this.state.resultSets} />;
+  }
+
   _updateQuery(query) {
     this.setState({ query: query });
 
@@ -40,11 +45,6 @@ export default class App extends React.Component {
       method: 'get',
       data: { query: query },
     }).then(this._bindResultSets.bind(this, query));
-  }
-
-  _renderResults() {
-    if (this.state.resultSets.length <= 0) { return null; }
-    return <ResultSetList resultSets={this.state.resultSets} />;
   }
 
   _bindResultSets(query, data) {
