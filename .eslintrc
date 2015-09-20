@@ -1,0 +1,9 @@
+{
+  "extends": "golmansax/react-native",
+  "root": true,
+
+  "rules": {
+    "max-len": 0,
+    "react/prop-types": 0
+  }
+}

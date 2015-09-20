@@ -3,3 +3,5 @@ machine:
     PATH: ./node_modules/.bin:$PATH
 
   test:
+    override:
+      - make eslint

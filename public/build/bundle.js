@@ -52,20 +52,40 @@ var App = (function (_React$Component) {
     _classCallCheck(this, App);
 
     _get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, props);
-    this.state = { resultSets: [] };
+    this.state = { resultSets: [], query: '' };
 
     this._bindResultSets = this._bindResultSets.bind(this);
+    this._updateQuery = this._updateQuery.bind(this);
   }
 
   _createClass(App, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      (0, _reqwest2['default'])('/result_sets').then(this._bindResultSets);
-    }
-  }, {
     key: 'render',
     value: function render() {
-      return _react2['default'].createElement(_result_set_list2['default'], { resultSets: this.state.resultSets });
+      var _this = this;
+
+      return _react2['default'].createElement(
+        'div',
+        null,
+        _react2['default'].createElement('input', {
+          type: 'text',
+          value: this.state.query,
+          onChange: function (event) {
+            return _this._updateQuery(event.target.value);
+          }
+        }),
+        _react2['default'].createElement(_result_set_list2['default'], { resultSets: this.state.resultSets })
+      );
+    }
+  }, {
+    key: '_updateQuery',
+    value: function _updateQuery(query) {
+      this.setState({ query: query });
+
+      (0, _reqwest2['default'])({
+        url: '/result_sets',
+        method: 'get',
+        data: { query: query }
+      }).then(this._bindResultSets);
     }
   }, {
     key: '_bindResultSets',

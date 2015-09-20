@@ -9,6 +9,11 @@
   },
   "devDependencies": {
     "babelify": "*",
+    "babel-eslint": "*",
+    "eslint": "*",
+    "eslint-config-airbnb": "*",
+    "eslint-config-golmansax": "*",
+    "eslint-plugin-react": "*",
     "reactify": "*",
     "watchify": "*"
   },
