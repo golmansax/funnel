@@ -84,6 +84,14 @@ var App = (function (_React$Component) {
       );
     }
   }, {
+    key: '_renderResults',
+    value: function _renderResults() {
+      if (this.state.resultSets.length <= 0) {
+        return null;
+      }
+      return _react2['default'].createElement(_result_set_list2['default'], { resultSets: this.state.resultSets });
+    }
+  }, {
     key: '_updateQuery',
     value: function _updateQuery(query) {
       this.setState({ query: query });
@@ -93,14 +101,6 @@ var App = (function (_React$Component) {
         method: 'get',
         data: { query: query }
       }).then(this._bindResultSets.bind(this, query));
-    }
-  }, {
-    key: '_renderResults',
-    value: function _renderResults() {
-      if (this.state.resultSets.length <= 0) {
-        return null;
-      }
-      return _react2['default'].createElement(_result_set_list2['default'], { resultSets: this.state.resultSets });
     }
   }, {
     key: '_bindResultSets',
