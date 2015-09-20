@@ -1,5 +1,5 @@
 import Autocomplete from 'autocomplete';
-import { categories } from '../static_data/categories.json';
+import { categories as rawCategories } from '../static_data/categories.json';
 import slugify from '../shared/utils/slugify';
 
 const autocomplete = Autocomplete.connectAutocomplete();
@@ -21,10 +21,10 @@ function loadCategories(categories) {
     if (category.children) { loadCategories(category.children); }
   });
 }
-loadCategories(categories);
+loadCategories(rawCategories);
 
 autocomplete.initialize((onReady) => onReady(slugs));
-console.log('categories loaded!');
+console.log('categories loaded!'); // eslint-disable-line no-console
 
 export function queryCategories(query) {
   const matches = autocomplete.search(slugify(query));

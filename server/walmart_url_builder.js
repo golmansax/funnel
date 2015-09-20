@@ -11,5 +11,5 @@ export function buildAutocompleteUrl(query) {
 }
 
 export function buildCategoryUrl(category) {
-  return 'http://walmart.com';
+  return `http://walmart.com/browse/${category.path}/${category.id}`;
 }
