@@ -1,0 +1,24 @@
+{
+  "name": "Quarry",
+  "description" : "Testing",
+  "version": "1.0",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "http://localhost:3000/",
+    "http://www.walmart.com/*",
+  ],
+  "icons": {
+    "48": "icon.png"
+  },
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "matches": [
+        "http://www.walmart.com/*"
+      ],
+      "js": ["src/autocomplete.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
