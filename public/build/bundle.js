@@ -51,6 +51,8 @@ var _appCss = require('./app.css');
 
 var _appCss2 = _interopRequireDefault(_appCss);
 
+var EXTERNAL_CLASSES = 'js-searchbar-input js-header-instant-placeholder searchbar-input';
+
 var App = (function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -71,16 +73,21 @@ var App = (function (_React$Component) {
 
       return _react2['default'].createElement(
         'div',
-        { className: _appCss2['default'].container },
+        null,
         _react2['default'].createElement('input', {
           type: 'text',
           value: this.state.query,
           onChange: function (event) {
             return _this._updateQuery(event.target.value);
           },
-          className: _appCss2['default'].input
+          className: _appCss2['default'].input + ' ' + EXTERNAL_CLASSES,
+          placeholder: 'Search'
         }),
-        this._renderResults()
+        _react2['default'].createElement(
+          'div',
+          { className: _appCss2['default'].container },
+          this._renderResults()
+        )
       );
     }
   }, {

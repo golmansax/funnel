@@ -3,6 +3,9 @@ import reqwest from 'reqwest';
 import ResultSetList from './result_set_list';
 import styles from './app.css';
 
+const EXTERNAL_CLASSES =
+    'js-searchbar-input js-header-instant-placeholder searchbar-input';
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -14,14 +17,17 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className={styles.container}>
+      <div>
         <input
           type='text'
           value={this.state.query}
           onChange={(event) => this._updateQuery(event.target.value)}
-          className={styles.input}
+          className={`${styles.input} ${EXTERNAL_CLASSES}`}
+          placeholder='Search'
         />
-        {this._renderResults()}
+        <div className={styles.container}>
+          {this._renderResults()}
+        </div>
       </div>
     );
   }

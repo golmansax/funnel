@@ -6,13 +6,16 @@ function swap() {
   var temp = cur;
   cur = next;
   next = temp;
+  cur.style.display = 'block';
+  next.style.display = 'none';
 }
 
 function add_button() {
   var button = document.createElement('button');
   button.id = 'mybutton';
-  button.innerText= 'click me';
-
+  button.innerText= 'Yo Quarry';
+  button.style.position = 'absolute';
+  button.style.top = '0';
   button.onclick = swap;
   document.getElementsByClassName('header-primary')[0].appendChild(button);
 }
@@ -28,7 +31,8 @@ function init() {
   var orig = document.getElementsByClassName('twitter-typeahead typeahead')[0];
   var new_input = document.createElement('div');
   new_input.id = 'content';
-  //new_input.style.display = 'none';
+  new_input.style.display = 'none';
+  new_input.style['z-index'] = 100;
   orig.parentElement.appendChild(new_input);
 
   cur = orig;
