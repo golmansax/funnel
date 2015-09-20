@@ -33,6 +33,7 @@ function init() {
   new_input.id = 'content';
   new_input.style.display = 'none';
   new_input.style['z-index'] = 100;
+  new_input.style.position = 'relative';
   orig.parentElement.appendChild(new_input);
 
   cur = orig;
