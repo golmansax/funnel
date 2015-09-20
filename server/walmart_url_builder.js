@@ -11,5 +11,10 @@ export function buildAutocompleteUrl(query) {
 }
 
 export function buildCategoryUrl(category) {
-  return `http://walmart.com/browse/${category.path}/${category.id}`;
+  return `http://www.walmart.com/browse/${category.path}/${category.id}`;
+}
+
+export function buildFacetUrl(category, filter, facet) {
+  const encodedSuffix = `${filter.name}:${facet.name}`;
+  return `${buildCategoryUrl(category)}?facet=${encodedSuffix}`;
 }

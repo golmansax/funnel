@@ -1,3 +1,6 @@
+import { buildFacetUrl } from './walmart_url_builder';
+import { getCategory } from './categories';
+
 const default_filters = [
   ['1072864_1067618_1218947', []],
   ['1072864_1067618_1218949', []],
@@ -31,7 +34,20 @@ function init() {
 
 function loadFilters(id) {
   const filters = require(`../static_data/filters/${id}.json`);
-  return filters.facets;
+  const category = getCategory(id);
+
+  return filters.facets.map((filter) => {
+    filter.facetValues.sort((a, b) => {
+      if (a.count < b.count) { return 1; }
+      if (a.count > b.count) { return -1; }
+      return 0;
+    });
+    filter.facetValues.forEach((facet) => {
+      facet.url = buildFacetUrl(category, filter, facet);
+    });
+
+    return filter;
+  });
 }
 
 export function getFilters(id) {

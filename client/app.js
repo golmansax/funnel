@@ -1,6 +1,7 @@
 import React from 'react';
 import reqwest from 'reqwest';
 import ResultSetList from './result_set_list';
+import styles from './app.css';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,11 +14,12 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.container}>
         <input
           type='text'
           value={this.state.query}
           onChange={(event) => this._updateQuery(event.target.value)}
+          className={styles.input}
         />
         <ResultSetList resultSets={this.state.resultSets} />
       </div>

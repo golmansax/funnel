@@ -27,6 +27,7 @@ function loadCategories(categories) {
     insertCategoryAndSlug(category, slugify(category.name));
     insertCategoryAndSlug(category, slugify(category.path));
     insertCategoryAndSlug(category, slugify(reversePath(category.path)));
+    index.set(category.id, category);
 
     if (category.children) { loadCategories(category.children); }
   });
@@ -35,6 +36,10 @@ loadCategories(rawCategories);
 
 autocomplete.initialize((onReady) => onReady(slugs));
 console.log('categories loaded!'); // eslint-disable-line no-console
+
+export function getCategory(id) {
+  return index.get(id);
+}
 
 export function queryCategories(query) {
   const matches = autocomplete.search(slugify(query));

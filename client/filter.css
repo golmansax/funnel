@@ -1,0 +1,11 @@
+.filter {
+  composes: result from './result_set.css';
+
+  overflow: auto;
+  zoom: 1;
+}
+
+.facet {
+  width: 25%;
+  float: left;
+}

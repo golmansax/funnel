@@ -10,6 +10,7 @@
   "devDependencies": {
     "babelify": "*",
     "babel-eslint": "*",
+    "css-modulesify": "*",
     "eslint": "*",
     "eslint-config-airbnb": "*",
     "eslint-config-golmansax": "*",

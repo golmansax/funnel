@@ -1,0 +1,63 @@
+._client_app__container {
+  width: 40em;
+}
+
+._client_app__input {
+  width: 100%;
+}
+
+._client_result_set__result {
+  padding: .5em 1em;
+  font-family: myriad-pro, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  word-spacing: 0px;
+  letter-spacing: 0px;
+  text-indent: 0px;
+  text-rendering: auto;
+  text-transform: none;
+  background: white;
+}
+
+._client_result_set__clickable:hover {
+  background: #bbb;
+  cursor: pointer;
+}
+
+._client_result_set__parentResult {
+}
+
+._client_result_set__childResult {
+}
+
+._client_result_set__result {
+  padding: .5em 1em;
+  font-family: myriad-pro, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  word-spacing: 0px;
+  letter-spacing: 0px;
+  text-indent: 0px;
+  text-rendering: auto;
+  text-transform: none;
+}
+
+._client_result_set__parentResult {
+}
+
+._client_result_set__childResult {
+}
+._client_filter__filter {
+
+  overflow: auto;
+  zoom: 1;
+}
+
+._client_filter__facet {
+  width: 25%;
+  float: left;
+}
