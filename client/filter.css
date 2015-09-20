@@ -1,11 +1,47 @@
 .filter {
   composes: result from './result_set.css';
+}
 
-  overflow: auto;
-  zoom: 1;
+.facetGrid {
+  composes: clearfix from './styles.css';
+}
+
+.facetContainer {
+  width: 25%;
+  float: left;
+  composes: clearfix from './styles.css';
 }
 
 .facet {
-  width: 25%;
-  float: left;
+  composes: walmart from './styles.css';
+  composes: clickable from './styles.css';
+  padding: 1em;
+  border: .1em solid #888;
+  border-radius: .25em;
+  margin: .5em .25em 0 .25em;
+  display: block;
+  text-align: center;
+}
+
+.facet:hover {
+  background: rgba(61, 161, 224, .1);
+}
+
+.facetContainer:last-child .facet {
+  margin-right: 0;
+}
+
+.facetContainer:first-child .facet {
+  margin-left: 0;
+}
+
+.filterHeader {
+  color: #888;
+  font-size: .9em;
+}
+
+.facetCount {
+  color: #888;
+  font-size: .8em;
+  margin-top: .25em;
 }

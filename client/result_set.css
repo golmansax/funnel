@@ -1,27 +1,22 @@
 .result {
+  composes: walmart from './styles.css';
   padding: .5em 1em;
-  font-family: myriad-pro, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 400;
-  word-spacing: 0px;
-  letter-spacing: 0px;
-  text-indent: 0px;
-  text-rendering: auto;
-  text-transform: none;
   background: white;
-}
-
-.clickable:hover {
-  background: #bbb;
-  cursor: pointer;
+  display: block;
 }
 
 .parentResult {
-  composes: result clickable;
+  composes: result;
+  composes: clickable from './styles.css';
 }
 
 .childResult {
-  composes: result clickable;
+  padding-left: 2em !important;
+  composes: result;
+  composes: clickable from './styles.css';
+}
+
+.path {
+  font-size: .8em;
+  color: #888;
 }

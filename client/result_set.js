@@ -22,18 +22,16 @@ export default class ResultSet extends React.Component {
   _renderParentResult() {
     const parentResult = this.props.parentResult;
     return (
-      <div className={styles.parentResult}>
-        <a href={parentResult.url} target='_blank'>
-          {parentResult.displayText}
-        </a>
+      <a className={styles.parentResult} href={parentResult.url} target='_blank'>
+        {parentResult.displayText}
         {this._renderPath(parentResult.path)}
-      </div>
+      </a>
     );
   }
 
   _renderPath(path) {
     if (!path) { return null; }
-    return <span>&nbsp;in {path}</span>;
+    return <div className={styles.path}>in {path}</div>;
   }
 
   _renderChildResultList() {
@@ -51,11 +49,9 @@ export default class ResultSet extends React.Component {
 
   _renderChildResult(result, index) {
     return (
-      <div className={styles.childResult} key={index}>
-        <a href={result.url} target='_blank'>
-          &nbsp;- {result.displayText}
-        </a>
-      </div>
+      <a className={styles.childResult} key={index} href={result.url} target='_blank'>
+        {result.displayText}
+      </a>
     );
   }
 }

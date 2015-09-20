@@ -10,8 +10,8 @@ export default class Filter extends React.Component {
   render() {
     return (
       <div className={styles.filter}>
-        <h3>{this.props.displayName}</h3>
-        {this._renderFacets()}
+        <div className={styles.filterHeader}>by {this.props.displayName}</div>
+        <div className={styles.facetGrid}>{this._renderFacets()}</div>
       </div>
     );
   }
@@ -24,8 +24,11 @@ export default class Filter extends React.Component {
 
   _renderFacet(facet, index) {
     return (
-      <div className={styles.facet} key={index}>
-        <a href={facet.url} target='_blank'>{facet.name} {facet.count}</a>
+      <div className={styles.facetContainer} key={index}>
+        <a className={styles.facet} href={facet.url} target='_blank'>
+          {facet.name}
+          <div className={styles.facetCount}>{facet.count} results</div>
+        </a>
       </div>
     );
   }
