@@ -7,7 +7,7 @@
 }
 
 .facetContainer {
-  width: 25%;
+  width: 33.3333333333333333333333%;
   float: left;
   composes: clearfix from './styles.css';
 }
@@ -15,7 +15,9 @@
 .facet {
   composes: walmart from './styles.css';
   composes: clickable from './styles.css';
-  padding: 1em;
+  composes: clearfix from './styles.css';
+
+  padding: .5em;
   border: .1em solid #888;
   border-radius: .25em;
   margin: .5em .25em 0 .25em;
@@ -44,4 +46,17 @@
   color: #888;
   font-size: .8em;
   margin-top: .25em;
+}
+
+.facetImage {
+  float: left;
+  height: 3em;
+}
+
+.facetText {
+  padding: .5em;
+  font-size: .9em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

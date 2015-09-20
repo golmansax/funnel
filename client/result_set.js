@@ -8,11 +8,12 @@ export default class ResultSet extends React.Component {
     super(props);
     this._renderParentResult = this._renderParentResult.bind(this);
     this._renderChildResultList = this._renderChildResultList.bind(this);
+    this._renderFilters = this._renderFilters.bind(this);
   }
 
   render() {
     return (
-      <div>
+      <div className={styles.resultSet}>
         {this._renderParentResult()}
         {this._renderChildResultList()}
         {this._renderFilters(this.props.parentResult.filters)}
@@ -45,7 +46,12 @@ export default class ResultSet extends React.Component {
 
   _renderFilters(filters) {
     if (!filters || filters.length <= 0) { return null; }
-    return <FilterList filters={filters} />;
+    return (
+      <FilterList
+        categoryName={this.props.parentResult.displayText}
+        filters={filters}
+      />
+    );
   }
 
   _renderChildResult(result, index) {
